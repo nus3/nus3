@@ -5,19 +5,25 @@ module.exports = {
     node: true
   },
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: '@typescript-eslint/parser',
+    sourceType: 'module',
+    project: './tsconfig.json',
+    ecmaFeatures: { "legacyDecorators": true }
   },
   extends: [
     '@nuxtjs',
     'plugin:nuxt/recommended',
     'plugin:prettier/recommended',
-    'prettier',
-    'prettier/vue'
+    'prettier/vue',
+    'prettier/@typescript-eslint'
   ],
   plugins: [
-    'prettier'
+    'prettier',
+    '@typescript-eslint'
   ],
   // add your custom rules here
   rules: {
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error"
   }
 }
